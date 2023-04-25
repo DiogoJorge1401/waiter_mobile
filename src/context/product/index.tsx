@@ -68,30 +68,26 @@ export const ProductProvider = ({
     setIsProductModalVisible(false);
   };
 
+  const getProducts = async (endpoint: string) => {
+    try {
+      setIsFetchingProducts(true);
+
+      const { data } = await app.get(endpoint);
+
+      const { products } = data;
+
+      setProducts(() => products);
+    } catch (error) {
+      console.log(error);
+
+      setFetchedProductsError(true);
+    } finally {
+      setIsFetchingProducts(false);
+    }
+  };
+
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        setIsFetchingProducts(true);
-
-        const { data } = await app.get('/products');
-
-        const { products } = data;
-
-        setProducts(() => products);
-      } catch (error) {
-        console.log(error);
-
-        setFetchedProductsError(true);
-      } finally {
-        setIsFetchingProducts(false);
-      }
-    };
-
-    const doFetchs = async () => {
-      await getProducts();
-    };
-
-    doFetchs();
+    getProducts('/products');
   }, []);
 
   return (
@@ -103,6 +99,7 @@ export const ProductProvider = ({
         isFetchingProducts,
         fetchedProductsError,
         isProductModalVisible,
+        getProducts,
         setProductsInCar,
         addActiveProduct,
         setActiveProduct,

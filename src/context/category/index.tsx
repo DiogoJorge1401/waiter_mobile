@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { app } from '../../api/app';
 import { Category } from '../../types/Category';
 import { ICategoryContext } from './types';
+import { useProduct } from '../product';
 
 const CategoryContext = createContext({} as ICategoryContext);
 
@@ -14,10 +15,15 @@ export const CategoryProvider = ({
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [isFetchingCategories, setIsFetchingCategories] = useState(false);
   const [fetchedCategoriesError, setFetchedCategoriesError] = useState(false);
+  const { getProducts } = useProduct();
 
   // Category
-  const handleSelectCategory = (id: string) => {
-    setActiveCategory((prev) => (prev === id ? null : id));
+  const handleSelectCategory = async (id: string) => {
+    const cat_id = activeCategory === id ? null : id;
+    const url = cat_id ? `/categories/${cat_id}/products` : '/products';
+
+    setActiveCategory(cat_id);
+    await getProducts(url);
   };
 
   useEffect(() => {
@@ -39,11 +45,7 @@ export const CategoryProvider = ({
       }
     };
 
-    const doFetchs = async () => {
-      await getCategories();
-    };
-
-    doFetchs();
+    getCategories();
   }, []);
 
   return (

@@ -6,14 +6,14 @@ import { TableProvider } from './table';
 
 export const MainContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <CategoryProvider>
-      <ProductProvider>
+    <ProductProvider>
+      <CategoryProvider>
         <TableProvider>
           <OrderProvider>
             <AppProvider>{children}</AppProvider>
           </OrderProvider>
         </TableProvider>
-      </ProductProvider>
-    </CategoryProvider>
+      </CategoryProvider>
+    </ProductProvider>
   );
 };

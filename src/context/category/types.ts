@@ -8,7 +8,9 @@ export interface CategoryContextProps {
 }
 
 interface CategoryContextFuncs {
-  handleSelectCategory: (id: string) => void;
+  handleSelectCategory: (id: string) => Promise<void>;
 }
 
-export interface ICategoryContext extends CategoryContextProps, CategoryContextFuncs {}
+export interface ICategoryContext
+  extends CategoryContextProps,
+    CategoryContextFuncs {}
