@@ -35,5 +35,5 @@ export const products = [
     imagePath: '9cce94be-081c-4bad-910a-c3f270af8c10-coca-cola.png',
     price: 7,
     ingredients: [],
-  },
+  }
 ];

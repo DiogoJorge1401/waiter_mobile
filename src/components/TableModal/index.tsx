@@ -1,58 +1,55 @@
+import { useState } from 'react';
 import { Modal, TouchableOpacity } from 'react-native';
+import { useTable } from '../../context/table';
+import { isAndroid } from '../../utils/isAndroid';
+import { Button } from '../Button';
 import { Close } from '../Icons/Close';
 import { Text } from '../Text';
-import { Header, ModalBody, Form, Overlay, Input } from './styles';
-import { useState } from 'react';
-import { Button } from '../Button';
-import { isAndroid } from '../../utils/isAndroid';
+import { Form, Header, Input, ModalBody, Overlay } from './styles';
 
-interface TableModalProps {
-  visible: boolean;
-  closeModal: () => void;
-  onSave: (table: string) => void;
-}
+export const TableModal = () => {
+  const { isTableModalVisible, handleCloseTableModal, handleSaveTable } =
+    useTable();
 
-export const TableModal = ({
-  visible,
-  closeModal,
-  onSave,
-}: TableModalProps) => {
-  const [table, setTable] = useState('');
+  const [tableTmp, setTableTmp] = useState('');
 
-  const handleCloseModal = () => {
-    closeModal();
-    setTable('');
+  const buttonDisabled = tableTmp.length === 0;
+
+  const handlePress = () => {
+    handleSaveTable(tableTmp);
+    setTableTmp('');
   };
 
-  const handleSaveTable = () => {
-    onSave(table);
-    setTable('');
-    closeModal();
+  const handleOnRequestClose = () => {
+    setTableTmp('');
+    handleCloseTableModal();
   };
-
-  const buttonDisabled = table.length === 0;
-
   return (
-    <Modal visible={visible} transparent animationType="fade">
+    <Modal
+      visible={isTableModalVisible}
+      transparent
+      animationType="fade"
+      onRequestClose={handleOnRequestClose}
+    >
       <Overlay behavior={isAndroid() ? 'height' : 'padding'}>
         <ModalBody>
           <Header>
             <Text weight="600">Informe a mesa</Text>
 
-            <TouchableOpacity onPress={handleCloseModal}>
+            <TouchableOpacity onPress={handleOnRequestClose}>
               <Close color="#666" />
             </TouchableOpacity>
           </Header>
 
           <Form>
             <Input
-              onChangeText={setTable}
-              value={table}
+              onChangeText={setTableTmp}
+              value={tableTmp}
               placeholder="Número da Mesa"
               placeholderTextColor="#666"
               keyboardType="number-pad"
             />
-            <Button onPress={handleSaveTable} disabled={buttonDisabled}>
+            <Button onPress={handlePress} disabled={buttonDisabled}>
               Salvar
             </Button>
           </Form>

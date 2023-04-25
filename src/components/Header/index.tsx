@@ -1,29 +1,41 @@
+import { TouchableOpacity } from 'react-native';
+import { useOrder } from '../../context/order';
+import { useTable } from '../../context/table';
 import { Text } from '../Text';
-import { Container } from './styles';
+import { Container, Content, OrderHeader, TableName } from './styles';
 
-interface HeaderProps {
-  selectedOrder: null | Record<string, string>;
-}
+export const Header = () => {
+  const { table } = useTable();
+  const { handleResetOrder } = useOrder();
 
-export const Header = ({ selectedOrder }: HeaderProps) => {
-  return (
+  return !table ? (
     <Container>
-      {!selectedOrder ? (
-        <>
-          <Text size={14} color="#333" opacity={0.9}>
-            Bem vindo(a) ao
-          </Text>
+      <Text size={14} color="#333" opacity={0.9}>
+        Bem vindo(a) ao
+      </Text>
 
-          <Text size={24} weight="700">
-            RAPID
-            <Text size={24}>SERVE</Text>
-          </Text>
-        </>
-      ) : (
-        <Text size={24} weight="700">
-          {selectedOrder.table}
-        </Text>
-      )}
+      <Text size={24} weight="700">
+        RAPID
+        <Text size={24}>SERVE</Text>
+      </Text>
     </Container>
+  ) : (
+    <Content>
+      <OrderHeader>
+        <Text size={24} weight="600">
+          Pedido
+        </Text>
+
+        <TouchableOpacity onPress={handleResetOrder}>
+          <Text color="#d73035" weight="600" size={14}>
+            cancelar pedido
+          </Text>
+        </TouchableOpacity>
+      </OrderHeader>
+
+      <TableName>
+        <Text color="#666">Mesa {table}</Text>
+      </TableName>
+    </Content>
   );
 };

@@ -1,5 +1,6 @@
-import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
+import { StatusBar } from 'react-native';
+import { MainContext } from './src/context';
 import { Main } from './src/main';
 
 export default function App() {
@@ -12,9 +13,9 @@ export default function App() {
   if (!isLoaded || error) return null;
 
   return (
-    <>
-      <Main />
+    <MainContext>
       <StatusBar barStyle="light-content" />
-    </>
+      <Main />
+    </MainContext>
   );
 }

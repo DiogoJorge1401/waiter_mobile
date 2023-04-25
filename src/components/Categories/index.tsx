@@ -1,16 +1,10 @@
 import { FlatList } from 'react-native';
-import { categories } from '../../mocks/categories';
+import { useCategory } from '../../context/category';
 import { Text } from '../Text';
 import { Category, Container, Icon } from './styles';
-interface CategoriesProps {
-  activeCategory: string | null;
-  onSelectActiveCategory: (id: string) => () => void;
-}
 
-export const Categories = ({
-  activeCategory,
-  onSelectActiveCategory,
-}: CategoriesProps) => {
+export const Categories = () => {
+  const { handleSelectCategory, activeCategory, categories } = useCategory();
 
   return (
     <Container>
@@ -27,7 +21,7 @@ export const Categories = ({
           return (
             <Category
               isActive={isSelected}
-              onPress={onSelectActiveCategory(category._id)}
+              onPress={() => handleSelectCategory(category._id)}
             >
               <Icon isActive={isSelected}>
                 <Text opacity={opacity}>{category.icon}</Text>

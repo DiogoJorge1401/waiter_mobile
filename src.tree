@@ -1,0 +1,64 @@
+src/
+┣ assets/
+┃ ┗ fonts/
+┃   ┣ GeneralSans-Bold.otf
+┃   ┣ GeneralSans-Regular.otf
+┃   ┗ GeneralSans-Semibold.otf
+┣ components/
+┃ ┣ Button/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ CartItem/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ Categories/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ Footer/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ Header/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ Icons/
+┃ ┃ ┣ Empty/
+┃ ┃ ┃ ┣ index.tsx
+┃ ┃ ┃ ┗ markup.ts
+┃ ┃ ┣ CheckCircle.tsx
+┃ ┃ ┣ Close.tsx
+┃ ┃ ┣ MinusCircle.tsx
+┃ ┃ ┗ PlusCircle.tsx
+┃ ┣ Menu/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ MenuProductItem/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ OrderSummary/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ ProductModal/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ ProductModalIngredients/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┣ TableModal/
+┃ ┃ ┣ index.tsx
+┃ ┃ ┗ styles.ts
+┃ ┗ Text.ts
+┣ context/
+┃ ┗ main.context.tsx
+┣ main/
+┃ ┣ index.tsx
+┃ ┗ styles.ts
+┣ mocks/
+┃ ┣ categories.ts
+┃ ┗ products.ts
+┣ types/
+┃ ┣ Order.ts
+┃ ┗ Product.ts
+┗ utils/
+  ┣ formatCurrency.ts
+  ┣ getImageURI.ts
+  ┗ isAndroid.ts

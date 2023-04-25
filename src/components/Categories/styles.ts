@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 import { isAndroid } from '../../utils/isAndroid';
 
 export const Container = styled.View`
-  min-height: 74px;
-  margin-top: 34px;
+  min-height: 72px;
+  margin-top: 32px;
 `;
 
 export const Category = styled.TouchableOpacity<{ isActive: boolean }>`
@@ -20,7 +20,7 @@ export const Icon = styled.View<{ isActive: boolean }>`
   justify-content: center;
 
   background: #fff;
-  border-radius: 22px;
+  border-radius: 20px;
 
   ${!isAndroid() && 'box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2)'};
   elevation: 2;
