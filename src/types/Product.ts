@@ -9,6 +9,7 @@ export interface Product {
     icon: string;
     _id: string;
   }[];
+  category: string;
 }
 
 export type CartProduct = Product & {
