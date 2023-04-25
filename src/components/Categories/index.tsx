@@ -12,7 +12,7 @@ export const Categories = () => {
         horizontal
         data={categories}
         showsHorizontalScrollIndicator={false}
-        keyExtractor={(caat) => caat._id}
+        keyExtractor={(cat) => cat._id}
         contentContainerStyle={{ gap: 24 }}
         renderItem={({ item: category }) => {
           const isSelected = category._id === activeCategory;
