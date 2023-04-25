@@ -9,9 +9,11 @@ import { ProductModal } from '../components/ProductModal';
 import { TableModal } from '../components/TableModal';
 import { useApp } from '../context/app/context';
 import { Container } from './styles';
+import { useProduct } from '../context/product';
 
 export const Main = () => {
   const { isAppLoading } = useApp();
+  const { isFetchingProducts } = useProduct();
 
   return (
     <>
@@ -32,7 +34,13 @@ export const Main = () => {
           <>
             <Categories />
 
-            <Menu />
+            {isFetchingProducts ? (
+              <CenteredContainer>
+                <ActivityIndicator color="#d73035" size="large" />
+              </CenteredContainer>
+            ) : (
+              <Menu />
+            )}
           </>
         )}
       </Container>
