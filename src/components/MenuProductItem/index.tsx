@@ -1,6 +1,6 @@
 import { GestureResponderEvent, TouchableOpacity } from 'react-native';
-import { useProduct } from '../../context/product';
-import { useTable } from '../../context/table';
+import { useProduct } from '../../contexts/product';
+import { useTable } from '../../contexts/table';
 import { Product } from '../../types/Product';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { getImageURI } from '../../utils/getImageURI';

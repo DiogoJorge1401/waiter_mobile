@@ -1,5 +1,5 @@
 import { FlatList } from 'react-native';
-import { useProduct } from '../../context/product';
+import { useProduct } from '../../contexts/product';
 import { Text } from '../Text';
 import { Container, Ingredient } from './styles';
 

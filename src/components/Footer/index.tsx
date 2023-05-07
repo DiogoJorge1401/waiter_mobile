@@ -1,11 +1,11 @@
 import { FlatList } from 'react-native';
-import { useApp } from '../../context/app';
+import { useApp } from '../../contexts/app';
 import { Button } from '../Button';
 import { CartItem } from '../CartItem';
 import { OrderSummary } from '../OrderSummary';
 import { Container } from './styles';
-import { useTable } from '../../context/table';
-import { useProduct } from '../../context/product';
+import { useTable } from '../../contexts/table';
+import { useProduct } from '../../contexts/product';
 
 export const Footer = () => {
   const { isAppLoading } = useApp();

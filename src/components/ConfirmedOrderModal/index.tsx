@@ -1,5 +1,5 @@
 import { Modal } from 'react-native';
-import { useOrder } from '../../context/order';
+import { useOrder } from '../../contexts/order';
 import { CheckCircle } from '../Icons/CheckCircle';
 import { Text } from '../Text';
 import { Button, Container, Header } from './styles';
@@ -15,7 +15,6 @@ export const ConfirmedOrderModal = () => {
       onRequestClose={handleCloseConfirmedOrderModal}
       transparent={false}
     >
-
       <Container>
         <Header>
           <CheckCircle />

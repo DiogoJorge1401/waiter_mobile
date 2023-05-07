@@ -1,6 +1,6 @@
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'react-native';
-import { MainContext } from './src/context';
+import { MainContext } from './src/contexts';
 import { Main } from './src/main';
 
 export default function App() {

@@ -22,8 +22,6 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
   const handleConfirmedOrder = async () => {
     setIsOrderRequestLoading(true);
     try {
-      console.log('Fazendo pedido');
-
       await app.post('/orders', {
         table,
         products: productsInCar.map(({ quantity, _id }) => ({
@@ -31,8 +29,6 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
           quantity,
         })),
       });
-
-      console.log('Pedido feito');
     } catch (error) {
       console.log(error);
     } finally {

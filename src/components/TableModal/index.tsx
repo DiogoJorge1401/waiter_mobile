@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Modal, TouchableOpacity } from 'react-native';
-import { useTable } from '../../context/table';
+import { useTable } from '../../contexts/table';
 import { isAndroid } from '../../utils/isAndroid';
 import { Button } from '../Button';
 import { Close } from '../Icons/Close';

@@ -1,12 +1,12 @@
-import { useOrder } from '../../context/order';
-import { useProduct } from '../../context/product';
+import { useOrder } from '../../contexts/order';
+import { useProduct } from '../../contexts/product';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { Button } from '../Button';
 import { Text } from '../Text';
 import { Container, SummaryDetails } from './styles';
 
 export const OrderSummary = () => {
-  const {  isOrderRequestLoading, handleConfirmedOrder } = useOrder();
+  const { isOrderRequestLoading, handleConfirmedOrder } = useOrder();
   const { productsInCar } = useProduct();
   return (
     <Container>

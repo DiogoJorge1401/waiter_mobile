@@ -1,6 +1,6 @@
 import { TouchableOpacity } from 'react-native';
-import { useOrder } from '../../context/order';
-import { useTable } from '../../context/table';
+import { useOrder } from '../../contexts/order';
+import { useTable } from '../../contexts/table';
 import { Text } from '../Text';
 import { Container, Content, OrderHeader, TableName } from './styles';
 

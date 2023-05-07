@@ -7,9 +7,9 @@ import { Header } from '../components/Header';
 import { Menu } from '../components/Menu';
 import { ProductModal } from '../components/ProductModal';
 import { TableModal } from '../components/TableModal';
-import { useApp } from '../context/app';
+import { useApp } from '../contexts/app';
 import { Container } from './styles';
-import { useProduct } from '../context/product';
+import { useProduct } from '../contexts/product';
 
 export const Main = () => {
   const { isAppLoading } = useApp();

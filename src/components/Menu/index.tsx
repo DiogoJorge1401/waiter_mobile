@@ -1,5 +1,5 @@
 import { FlatList } from 'react-native';
-import { useProduct } from '../../context/product';
+import { useProduct } from '../../contexts/product';
 import { CenteredContainer } from '../CenteredContainer';
 import { Empty } from '../Icons/Empty';
 import { MenuProductItem } from '../MenuProductItem';
@@ -22,8 +22,10 @@ export const Menu = () => {
     </Container>
   ) : (
     <CenteredContainer>
-      <Empty/>
-      <Text color='#666' style={{marginTop:24}}>Nenhum Produto Encontrado!</Text>
+      <Empty />
+      <Text color="#666" style={{ marginTop: 24 }}>
+        Nenhum Produto Encontrado!
+      </Text>
     </CenteredContainer>
   );
 };

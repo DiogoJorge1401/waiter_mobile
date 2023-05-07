@@ -1,6 +1,6 @@
 import { Modal } from 'react-native';
-import { useProduct } from '../../context/product';
-import { useTable } from '../../context/table';
+import { useProduct } from '../../contexts/product';
+import { useTable } from '../../contexts/table';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { getImageURI } from '../../utils/getImageURI';
 import { Button } from '../Button';

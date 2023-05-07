@@ -1,5 +1,5 @@
 import { TouchableOpacity } from 'react-native';
-import { useProduct } from '../../context/product';
+import { useProduct } from '../../contexts/product';
 import { CartProduct } from '../../types/Product';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { getImageURI } from '../../utils/getImageURI';

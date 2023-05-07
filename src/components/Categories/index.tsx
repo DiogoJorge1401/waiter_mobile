@@ -1,5 +1,5 @@
 import { FlatList } from 'react-native';
-import { useCategory } from '../../context/category';
+import { useCategory } from '../../contexts/category';
 import { Text } from '../Text';
 import { Category, Container, Icon } from './styles';
 
