@@ -2,12 +2,13 @@ import { createContext, useContext, useState } from 'react';
 import { useProduct } from '../product';
 import { useTable } from '../table';
 import { IOrderContext } from './types';
+import { app } from '../../api/app';
 
 const OrderContext = createContext({} as IOrderContext);
 
 export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
-  const { setProductsInCar } = useProduct();
-  const { setTable } = useTable();
+  const { setProductsInCar, productsInCar } = useProduct();
+  const { setTable, table } = useTable();
   const [isOrderRequestLoading, setIsOrderRequestLoading] = useState(false);
   const [isConfirmedOrderModalVisible, setIsConfirmedOrderModalVisible] =
     useState(false);
@@ -18,16 +19,26 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
     setProductsInCar([]);
   };
 
-  const handleConfirmedOrder = () => {
-    handleShowConfirmedOrderModal();
-  };
-
-  // ConfirmedOrderModal
-  const handleShowConfirmedOrderModal = async () => {
+  const handleConfirmedOrder = async () => {
     setIsOrderRequestLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsOrderRequestLoading(false);
-    setIsConfirmedOrderModalVisible(true);
+    try {
+      console.log('Fazendo pedido');
+
+      await app.post('/orders', {
+        table,
+        products: productsInCar.map(({ quantity, _id }) => ({
+          product: _id,
+          quantity,
+        })),
+      });
+
+      console.log('Pedido feito');
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsOrderRequestLoading(false);
+      setIsConfirmedOrderModalVisible(true);
+    }
   };
 
   const handleCloseConfirmedOrderModal = () => {
@@ -42,7 +53,6 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
         isConfirmedOrderModalVisible,
         handleResetOrder,
         handleConfirmedOrder,
-        handleShowConfirmedOrderModal,
         handleCloseConfirmedOrderModal,
       }}
     >

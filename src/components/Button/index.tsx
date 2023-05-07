@@ -17,12 +17,12 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <Container onPress={onPress} disabled={disabled || loading}>
-      {!loading ? (
+      {loading ? (
+        <ActivityIndicator color="#fff" />
+      ) : (
         <Text color="#fff" weight="600">
           {children}
         </Text>
-      ) : (
-        <ActivityIndicator color="#fff" />
       )}
     </Container>
   );

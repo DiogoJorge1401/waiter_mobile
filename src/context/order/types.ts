@@ -6,7 +6,6 @@ export interface OrderContextProps {
 interface OrderContextFuncs {
   handleResetOrder: () => void;
   handleConfirmedOrder: () => void;
-  handleShowConfirmedOrderModal: () => void;
   handleCloseConfirmedOrderModal: () => void;
 }
 

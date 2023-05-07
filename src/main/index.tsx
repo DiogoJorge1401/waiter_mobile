@@ -7,7 +7,7 @@ import { Header } from '../components/Header';
 import { Menu } from '../components/Menu';
 import { ProductModal } from '../components/ProductModal';
 import { TableModal } from '../components/TableModal';
-import { useApp } from '../context/app/context';
+import { useApp } from '../context/app';
 import { Container } from './styles';
 import { useProduct } from '../context/product';
 

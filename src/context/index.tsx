@@ -1,5 +1,5 @@
 import { CategoryProvider } from './category';
-import { AppProvider } from './app/context';
+import { AppProvider } from './app';
 import { OrderProvider } from './order';
 import { ProductProvider } from './product';
 import { TableProvider } from './table';

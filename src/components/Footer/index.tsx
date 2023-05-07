@@ -1,5 +1,5 @@
 import { FlatList } from 'react-native';
-import { useApp } from '../../context/app/context';
+import { useApp } from '../../context/app';
 import { Button } from '../Button';
 import { CartItem } from '../CartItem';
 import { OrderSummary } from '../OrderSummary';
